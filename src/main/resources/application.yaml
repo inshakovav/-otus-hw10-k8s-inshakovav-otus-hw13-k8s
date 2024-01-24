@@ -3,6 +3,6 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/portfolio_test
-    username: user
-    password: password
+    url: jdbc:postgresql://localhost:5432/helmtest
+    username: postgres
+    password: postgres
