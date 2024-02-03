@@ -1,10 +1,16 @@
 package com.example.service;
 
+import com.example.service.entity.UserEntity;
+import com.example.service.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
+@RequiredArgsConstructor
 public class UserController {
+
+    private final UserRepository userRepository;
 
     @GetMapping
     UserDto getUser() {
@@ -17,6 +23,11 @@ public class UserController {
 
     @PostMapping
     UserDto addUser() {
+
+        UserEntity userEntity = new UserEntity();
+        userEntity.setName("Fist name");
+        userRepository.save(userEntity);
+
         return UserDto.builder()
                 .id(12)
                 .name("Some user name")
