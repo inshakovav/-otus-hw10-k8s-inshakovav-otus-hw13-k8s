@@ -15,7 +15,7 @@ class MainTests {
     @Test
     void contextLoads() {
         UserEntity userEntity = new UserEntity();
-        userEntity.setName("Fist name");
+        userEntity.setUsername("Fist name");
         userRepository.save(userEntity);
     }
 
