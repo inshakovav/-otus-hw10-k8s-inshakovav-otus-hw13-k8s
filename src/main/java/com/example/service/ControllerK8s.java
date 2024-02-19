@@ -33,7 +33,7 @@ public class ControllerK8s {
     }
 
     @PostMapping("/sleep")
-    String toggleSleep(@RequestBody sleepDto sleepDto) {
+    String toggleSleep(@RequestBody SleepDto sleepDto) {
         sleepMilliseconds = sleepDto.getMilliseconds();
         return "Set sleep period, milliseconds=" + sleepMilliseconds;
     }
