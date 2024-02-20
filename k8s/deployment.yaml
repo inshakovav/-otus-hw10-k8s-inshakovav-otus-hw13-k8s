@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: kuber-app
-          image: alxinsh/docker-java-test-app:9.0.12
+          image: alxinsh/docker-java-test-app:9.0.13
           ports:
             - containerPort: 8000
           env:
@@ -40,7 +40,7 @@ spec:
             httpGet:
               path: /startup
               port: 8000
-            initialDelaySeconds: 60
+            initialDelaySeconds: 15
             periodSeconds: 10
             timeoutSeconds: 5
           livenessProbe:
