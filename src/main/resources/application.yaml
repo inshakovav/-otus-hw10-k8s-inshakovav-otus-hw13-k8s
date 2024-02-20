@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://my-release-postgresql.default.svc.cluster.local:5432/helmtest
+    url: jdbc:postgresql://my-release-postgresql.default.svc.cluster.local:5432/postgres
     username: postgres
     password: ewoMvDsTYl
   flyway:
