@@ -1,0 +1,11 @@
+server:
+  port: 8000
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/helmtest
+    username: postgres
+    password: postgres
+  flyway:
+    enabled: true
+    schemas: otus
