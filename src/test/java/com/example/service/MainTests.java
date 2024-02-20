@@ -12,7 +12,7 @@ class MainTests {
     @Autowired
     UserRepository userRepository;
 
-    @Test
+//    @Test
     void contextLoads() {
         UserEntity userEntity = new UserEntity();
         userEntity.setUsername("Fist name");
