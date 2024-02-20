@@ -24,7 +24,7 @@ public class ControllerK8s {
 
     @GetMapping("/version")
     String getVersion() {
-        return "v9.2";
+        return "v9.0.11";
     }
 
     @GetMapping

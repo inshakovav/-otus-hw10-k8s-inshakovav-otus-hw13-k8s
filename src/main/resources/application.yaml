@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/helmtest
+    url: jdbc:postgresql://my-release-postgresql.default.svc.cluster.local:5432/helmtest
     username: postgres
-    password: postgres
+    password: ewoMvDsTYl
   flyway:
     enabled: true
     schemas: otus
