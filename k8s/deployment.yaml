@@ -25,6 +25,17 @@ spec:
           image: alxinsh/docker-java-test-app:9.0.12
           ports:
             - containerPort: 8000
+          env:
+            - name: DB_USER
+              valueFrom: # в место занчений ссылки на Secret
+                secretKeyRef:
+                  name: kuber-secret
+                  key: username
+            - name: DB_PASS
+              valueFrom:
+                secretKeyRef:
+                  name: kuber-secret
+                  key: password
           startupProbe:
             httpGet:
               path: /startup
