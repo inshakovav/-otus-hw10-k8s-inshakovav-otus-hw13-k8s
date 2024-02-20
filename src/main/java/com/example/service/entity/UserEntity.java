@@ -1,10 +1,8 @@
 package com.example.service.entity;
 
-import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "user", schema = "otus")
