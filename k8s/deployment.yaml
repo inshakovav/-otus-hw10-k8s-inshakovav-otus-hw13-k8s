@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
         - name: kuber-app
-          image: alxinsh/docker-java-test-app:9.0.13
+          image: alxinsh/docker-java-test-app:9.0.14
           ports:
             - containerPort: 8000
           env:
