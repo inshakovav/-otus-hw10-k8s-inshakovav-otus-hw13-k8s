@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
@@ -21,38 +19,36 @@ public class UserController {
         return new ResponseEntity<>(userRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping ("/filtered")
-    public ResponseEntity<?> getFilteredUser() {
-        return new ResponseEntity<>(userRepository.findById(1L), HttpStatus.OK);
+    @GetMapping("/{userId}")
+    public UserEntity getUserById(@PathVariable Long userId) {
+        return userRepository.findById(userId).get();
     }
-
-//    @GetMapping
-//    UserDto getUser() {
-//
-//        return UserDto.builder()
-//                .id(12)
-//                .name("Some user name")
-//                .build();
-//    }
 
     @PostMapping
-    UserDto addUser() {
-
-        UserEntity userEntity = new UserEntity();
-        userEntity.setUsername("Fist name");
+    void addUser(@RequestBody UserEntity userEntity) {
         userRepository.save(userEntity);
-
-        return UserDto.builder()
-                .id(12)
-                .name("Some user name")
-                .build();
     }
 
-    @DeleteMapping
-    UserDto deleteUser() {
-        return UserDto.builder()
-                .id(12)
-                .name("Some user name")
+    @PutMapping("/{userId}")
+    UserEntity updateUser(@RequestBody UserEntity newUser, @PathVariable Long userId) {
+        return userRepository.findById(userId)
+                .map(userEntity -> {
+                    userEntity.setUsername(newUser.getUsername());
+                    userEntity.setFirstName(newUser.getFirstName());
+                    userEntity.setLastName(newUser.getLastName());
+                    userEntity.setEmail(newUser.getEmail());
+                    userEntity.setPhone(newUser.getPhone());
+                    return userRepository.save(userEntity);
+                })
+                .orElseGet(() -> userRepository.save(newUser));
+    }
+
+    @DeleteMapping("/{userId}")
+    DeleteDto deleteUser(@PathVariable Long userId) {
+        userRepository.deleteById(userId);
+        return DeleteDto.builder()
+                .code(0)
+                .message("User has been deleted")
                 .build();
     }
 }
