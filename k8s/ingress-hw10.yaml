@@ -8,24 +8,7 @@ spec:
   - host: arch.homework
     http:
       paths:
-      - path: /health
-        pathType: Prefix
-        backend:
-          service:
-            name: kuber-service
-            port:
-              number: 80
-
-      # Second path for CPU tests
-      - path: /load-cpu
-        pathType: Prefix
-        backend:
-          service:
-            name: kuber-service
-            port:
-              number: 80
-
-      - path: /allocate-memory
+      - path: /user
         pathType: Prefix
         backend:
           service:
